@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Blogs</title>
+  </head>
+  <body>
+    <h1>Blog List</h1>
+    <b:if test="${total > 0}">
+      <b:forEach items="${blogs}" var="b">
+        <div class="blog">
+          <h2>
+            <b:out value="${b.title}" />
+            <span>
+              <b:formatDate format="yyyy-MM-dd HH:mm:ss" date="${b.gmtCreate}" />
+            </span>
+          </h2>
+          <p><b:out value="${b.content}" /></p>
+        </div>
+      </b:forEach>
+    </b:if>
+    <b:else>
+      <p>No blog.</p>
+    </b:else>
+  </body>
+</html>
